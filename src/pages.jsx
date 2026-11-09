@@ -77,7 +77,7 @@ const Speak = () => (
 const Stay = ({ cta = true }) => (
   <section className="sec ctr"><div className="wrap">
     <Lbl>Stay connected</Lbl><h2>The refining <em>journey.</em></h2>
-    <div className="three" style={{ marginTop: 48, textAlign: 'left', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))' }}>
+    <div className="three" style={{ marginTop: 48, textAlign: 'left', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,300px),1fr))' }}>
       <div className="card"><Lbl>Free · Newsletter</Lbl><h3>Letters for the Road</h3><p>Reflections on identity, leadership and wealth, written for leaders who want to grow.</p><Link className="lnk" to="/letters">Subscribe</Link></div>
       <div className="card d"><Lbl style={{ color: 'var(--ch)' }}>Membership</Lbl><h3>The Forge</h3><p>Where leaders are refined. A private community for teaching, courses and priority access to gatherings. Come in. Be refined.</p><Link className="btn c" to="/the-forge">Join the waitlist</Link></div>
     </div></div></section>

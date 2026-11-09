@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
+import { Routes, Route, NavLink, Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import * as P from './pages.jsx'
 
 const nav = [['/identity', 'The Journey'], ['/about', 'About'], ['/books', 'Books'], ['/speaking', 'Speaking'], ['/the-forge', 'Community']]
@@ -13,7 +13,7 @@ function Header() {
     <header className="hd"><div className="wrap">
       <Link to="/" aria-label="Bisola Loto home"><img src="/images/logo-header.png" alt="Bisola Loto" width="152" height="36" /></Link>
       <button className="mb" aria-expanded={open} aria-controls="nav" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}</button>
-      <nav id="nav" className={open ? 'open' : ''} aria-label="Main">
+      <nav id="nav" className={`site-nav${open ? ' open' : ''}`} aria-label="Main">
         {nav.map(([to, t]) => <NavLink key={to} to={to} className={({ isActive }) => (isActive || (to === '/identity' && journey.includes(pathname)) ? 'on' : '')}>{t}</NavLink>)}
         <Link className="btn" to="/assay">Take the Assay Assessment</Link>
       </nav>
@@ -26,7 +26,7 @@ function Footer() {
     <footer className="ft">
       <img src="/images/logo-footer.png" alt="Bisola Loto" width="152" height="36" />
       <div className="tag">Refining leaders who carry greatness</div><hr />
-      <nav aria-label="Footer" style={{ display: 'block' }}>
+      <nav className="footer-nav" aria-label="Footer">
         <Link to="/about">About</Link>·<Link to="/books">Books</Link>·<Link to="/speaking">Speaking</Link>·<Link to="/manifesto">Manifesto</Link>·<Link to="/contact">Contact</Link>
       </nav>
       <div className="s"><a href="mailto:hello@bisolaloto.com">hello@bisolaloto.com</a> · <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a> · <a href="https://www.instagram.com/" rel="noopener">Instagram</a> · <a href="https://www.youtube.com/" rel="noopener">YouTube</a></div>
@@ -74,6 +74,7 @@ export default function App() {
       <main id="main">
         <Routes>
           <Route path="/" element={<P.Home />} />
+          <Route path="/index.html" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<P.About />} />
           {Object.keys(P.pillars).map(k => <Route key={k} path={`/${k}`} element={<P.Pillar k={k} />} />)}
           <Route path="/books" element={<P.Books />} />
