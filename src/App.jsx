@@ -8,14 +8,14 @@ function Header() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
   useEffect(() => { setOpen(false); window.scrollTo(0, 0) }, [pathname])
-  const journey = ['/identity', '/ethical-leadership', '/wealth', '/impact']
+  const journey = ['/vision', '/identity', '/life-design', '/wealth', '/impact']
   return (
     <header className="hd"><div className="wrap">
       <Link to="/" aria-label="Bisola Loto home"><img src="/images/logo-header.png" alt="Bisola Loto" width="152" height="36" /></Link>
       <button className="mb" aria-expanded={open} aria-controls="nav" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}</button>
       <nav id="nav" className={`site-nav${open ? ' open' : ''}`} aria-label="Main">
         {nav.map(([to, t]) => <NavLink key={to} to={to} className={({ isActive }) => (isActive || (to === '/identity' && journey.includes(pathname)) ? 'on' : '')}>{t}</NavLink>)}
-        <Link className="btn" to="/assay">Take the Assay Assessment</Link>
+        <Link className="btn" to="/assay">Clarify your season</Link>
       </nav>
     </div></header>
   )
@@ -50,16 +50,16 @@ function Popup() {
   if (!show) return null
   return (
     <div className="ov" onClick={e => e.target === e.currentTarget && close()}>
-      <form className="pop" role="dialog" aria-modal="true" aria-label="The Assay Assessment" onSubmit={e => { e.preventDefault(); close(); nav('/assay') }}>
+      <form className="pop" role="dialog" aria-modal="true" aria-label="The Cycle of Rise" onSubmit={e => { e.preventDefault(); close(); nav('/assay') }}>
         <button type="button" className="x" aria-label="Close" onClick={close}>×</button>
         <img src="/images/social-profile.png" alt="" style={{ width: 44, borderRadius: '50%' }} />
-        <span className="lbl" style={{ margin: 0, color: 'var(--ch)' }}>The Assay Assessment · Free</span>
-        <h2>Find out what's gold.</h2>
-        <p style={{ margin: '0 auto', fontSize: 14 }}>A free refining assessment for leaders. About 10 minutes.</p>
+        <span className="lbl" style={{ margin: 0, color: 'var(--ch)' }}>The Cycle of Rise · Free</span>
+        <h2>Know your season.</h2>
+        <p style={{ margin: '0 auto', fontSize: 14 }}>Find out which season you're in and what God is preparing you for. About 10 minutes.</p>
         <div className="pf g3" style={{ gridTemplateColumns: '1fr' }}>
           <input aria-label="First name" placeholder="First name" /><input aria-label="Email address" type="email" placeholder="Email address" />
         </div>
-        <button className="btn c" style={{ width: '100%' }}>Start the assessment</button>
+        <button className="btn c" style={{ width: '100%' }}>Clarify my season</button>
         <button type="button" className="no" onClick={close}>No thanks</button>
       </form>
     </div>

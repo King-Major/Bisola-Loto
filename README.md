@@ -17,7 +17,7 @@ Colours (src/styles.css): Oxblood #42121D, Champagne #E8C7A8, Bronze #B98F6E, Iv
 
 ## To finish before launch
 - Forms: set VITE_FORM_ENDPOINT (Formspree, ConvertKit etc.) in a .env file. Until then, forms show the thank-you message only.
-- Replace the three photos in public/images (bisola-*.jpg) with the originals. They were cropped from the design PDF, so resolution is low.
+- The site uses quality-96 WebP photos in public/images (bisola-*.webp), converted from the existing low-resolution JPEGs. Replace them with full-resolution originals when available for sharper images.
 - Add public/bisola-loto-speaker-kit.pdf; set real LinkedIn, Instagram, YouTube and True Disciple links (App.jsx, pages.jsx).
 - SEO: per-page title, description, canonical and Open Graph tags (Seo component), JSON-LD, sitemap.xml and robots.txt are in place. For best crawlability, add prerendering (e.g. vite-plugin-prerender) or move to Next.js.
 - Add a 1200x630 og-image.png and point og:image at it.
